@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="sections">
+    
+    <div class="view-product">
+        <img src="<%= product.img %>" alt="">
+        <h2><%= product.name %></h2>
+        <h3><%= product.description %></h3>
+        <p><%= product.price %></p>
+    </div>
+</div>
+<%- include('partials/footer') %>

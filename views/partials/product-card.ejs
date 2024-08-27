@@ -1,0 +1,23 @@
+
+<div class="card">
+    <img src="<%= product.img %>" class="product-img" alt="....">
+    <div class="card-body">
+        <h5 class="product-name">
+            <%= product.name %>
+        </h5>
+        <div class="product-des">
+            <p class="card-text">
+                <%= product.description %>
+            </p>
+            <div class="viewbtn">
+                <button><a href="/viewProduct/<%= product.id %>">View</a></button></div>
+            
+
+                    <% if (user.role == "admin") { %>
+                     <div class="editbtn">
+                    <button><a href="/editproduct/<%= product.id %>">Edit</a></button></div>
+                    <% } %>
+                   
+                  </div></div>
+</div>
+

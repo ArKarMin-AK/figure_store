@@ -1,0 +1,92 @@
+.card{
+    display: flex;
+
+}
+.product-img{
+    width: 150px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+.product-name,.product-des{
+    font-size: 2rem;
+}
+.viewbtn,.editbtn{
+    display: inline;
+}
+.viewbtn>button{
+    width: 4rem;
+    cursor: pointer;
+    height: 2rem;
+
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.viewbtn>button>a{
+    color: white;
+    text-decoration: none;
+}
+.product-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3rem;
+    background-color: grey;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+.product-form{
+    
+    margin: 1.5rem;
+    
+}
+#add-product-form{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
+}
+#name{
+    margin-left: 5.2rem;
+}
+#price{
+    margin-left: 5.6rem;
+}
+.product-input{
+    margin-left: 3rem;
+}
+#add-btn{
+    height: 2.5rem;
+    width: 7rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#add-btn:hover{
+    background-color: rgb(34, 32, 32);
+    color: red;
+}
+#add-caption{
+    color: red;
+}
+.editbtn>button{
+
+    width: 4rem;
+    cursor: pointer;
+    height: 2rem;
+
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.editbtn>button>a{
+    color: white;
+    text-decoration: none;
+}
+.viewbtn>button:hover,.editbtn>button:hover{
+    background-color: rgb(43, 41, 41);
+}
+
+
+

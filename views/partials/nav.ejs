@@ -1,0 +1,16 @@
+<div class="navbar">
+    <ul class="navmenu">
+        <li ><a href="/home">HOME</a></li>
+        <li ><a href="/products">Product</a></li>
+        <li><a href="">Special Offer</a></li>
+        <li ><a href="">Contact Info</a></li>
+        <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li><a href="/logout">Log out</a></li>
+    </ul>
+    <% if (page_title == "Products") { %>
+        <form action="" id="search_bar">
+         <input type="search" name="keyword" placeholder="search">
+         <button type="submit" >Search</button>
+        </form>
+    <% } %>
+</div>

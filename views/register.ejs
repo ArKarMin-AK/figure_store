@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+    <div class="container">
+        <form action="/users" method="post" id="register_form">
+            <div class="form">
+                <label for="">Username</label>
+                <input type="text" id="username">
+            </div>
+            <div class="form">
+                <label for="">Email</label>
+                <input type="email" id="email">
+            </div>
+            <div class="form">
+                <label for="">Password</label>
+                <input type="password" id="password">
+            </div>
+            <div class="form">
+                <label for="">Confirm Password</label>
+                <input type="password" id="confirmPasswordd">
+            </div>
+            <div class="form">
+               <button type="submit">Register</button>
+            </div>
+        </form>
+        
+    </div>
+    <script>
+        const register_form = document.getElementById("register_form");
+        register_form.addEventListener("submit",async(e)=>{
+            e.preventDefault();
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            try{
+                let res = await fetch("/users",{
+                    method:"POST",
+                    headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify({
+                        username,email,password
+                    })
+                });
+                if(res.status==201){
+                    location.assign("/home");
+                    return;
+                }
+                console.log(JSON.parse(res.body));
+            }
+            catch{
+                console.log("we fucked up")
+            }});
+    </script>
+<%- include('partials/footer') %>

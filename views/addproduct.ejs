@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="product-container">
+    <form  method="post" id="add-product-form">
+        <h2 class="product-form" id="add-caption">Add New Product</h2>
+        <div class="product-form">
+            <label for="">Name</label>
+            <input type="text" class="product-input" name="name" id="name">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Price</label>
+            <input type="number" class="product-input" name="price" id="price">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Description</label>
+            <input type="text" class="product-input" name="description" id="description">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Image URL</label>
+            <input type="url" class="product-input" name="img" id="img">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+           <button id="add-btn" type="submit">Add Product</button>
+        </div>
+    </form>
+    
+</div>
+<script>
+    const form = document.getElementById("add-product-form");
+    form.addEventListener("submit",async(e)=>{
+        e.preventDefault();
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let description = document.getElementById("description").value;
+        let img = document.getElementById("img").value;
+        try{
+             let res = await fetch("/products",{
+                method:"POST",
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify({
+                    name,
+                    price,
+                    description,
+                    img
+                })
+             })
+             if(res.status ==201){
+                res.alert("Product Added Successfullly");
+                form.reset();
+             }
+
+        }
+        catch(err){
+            alert("Something went wrong");
+        }
+
+    })
+</script>

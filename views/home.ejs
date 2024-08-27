@@ -1,0 +1,17 @@
+<%- include('partials/header'); %>
+<%- include('partials/nav') %>
+    <h1>This is Home</h1>
+    <h3>
+        <%= welcomeString %>
+    </h3>
+    
+<% if (!locals.user) { %>
+ <a href="/login">Sign up</a>
+ <% } else { %>
+    <% if (user.role=="admin") { %>
+     <a href="addproduct">you are admin</a>
+    <% } %>
+  Hi <%= user.username%>
+<% } %>
+
+<%- include('partials/footer')%>

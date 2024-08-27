@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="product-container">
+    <form  method="post" action="/updateproduct/<%= product.id %>" id="update-product-form">
+        <h2 class="product-form" id="add-caption">Update Product</h2>
+        <div class="product-form">
+            <label for="">Name</label>
+            <input type="text" class="product-input" name="name" id="name" value="<%=product.name%>">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Price</label>
+            <input type="number" class="product-input" name="price" id="price" value="<%= product.price  %>">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Description</label>
+            <input type="text" class="product-input" name="description" id="description" value="<%= product.description %>">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+            <label for="">Image URL</label>
+            <input type="url" class="product-input" name="img" id="img" value="<%= product.img %>">
+            <div class="nameerror"></div>
+        </div>
+        <div class="product-form">
+           <button id="add-btn" type="submit">Update</button>
+        </div>
+    </form>
+    
+</div>
