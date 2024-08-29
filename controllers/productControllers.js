@@ -36,7 +36,7 @@ module.exports.productGet = async function(req,res){
         // Fetch the user from the database
         let user = await User.findById(token.id);
  
-         console.log(user)
+
  
         // Check the user's role
         const query = user.role === "admin" ? {} : { isDeleted: false };

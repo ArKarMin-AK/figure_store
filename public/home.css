@@ -1,0 +1,9 @@
+#addproduct-btn>a{
+    color: white;
+    text-decoration: none;
+}
+#addproduct-btn{
+    height: 2rem;
+    
+    background-color: black;
+}
