@@ -4,9 +4,12 @@
     
     <div class="view-product">
         <img src="<%= product.img %>" alt="">
-        <h2><%= product.name %></h2>
+        <div class="product-inf">
+            <h2><%= product.name %></h2>
         <h3><%= product.description %></h3>
         <p><%= product.price %></p>
+        </div>
+        
     </div>
 </div>
 <%- include('partials/footer') %>
