@@ -1,0 +1,40 @@
+#login-body{
+    
+    background-color: rgb(175, 175, 175);
+}
+.container{
+    background-color: white;
+    margin-top: 2rem;
+    margin-left:35%;
+    margin-right: 35%;
+    height: 25rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+#login_form>h2{
+    font-family: cursive;
+    text-align: center;
+}
+.form>button{
+    width: 80%;
+    margin-top: 3rem;
+    margin-left: 10%;
+    border-radius: 1rem;
+    color: white;
+    height: 2.3rem;
+    background-color: black;
+    margin-right: 10%;
+}
+.form>input{
+    margin-top: 2rem;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    height: 1.5rem;
+}
+.form{
+    
+    margin-bottom: 2rem;
+}
