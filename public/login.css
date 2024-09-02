@@ -1,9 +1,10 @@
 #login-body{
-    
-    background-color: rgb(175, 175, 175);
+   background-color: white;
 }
+
 .container{
-    background-color: white;
+    background-color:rgb(0, 0, 0,60%);
+
     margin-top: 2rem;
     margin-left:35%;
     margin-right: 35%;
@@ -11,6 +12,7 @@
     padding: 2rem;
     border-radius: 1rem;
 }
+
 #login_form>h2{
     font-family: cursive;
     text-align: center;
