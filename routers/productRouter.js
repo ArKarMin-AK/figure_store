@@ -15,4 +15,5 @@ productRouter.post("/updateproduct/:id",UpdateProduct);
 productRouter.get("/editproduct/:id",adminOnly,editProduct);
 productRouter.delete("/productdelete/:id",softDeleteProduct);
 productRouter.post("/deleteproduct/:id",DeleteProduct);
+
 module.exports = productRouter;

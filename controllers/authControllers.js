@@ -1,4 +1,7 @@
 const {User} = require("../models/UserModel");
+const jwt = require("jsonwebtoken");
+const Product = require("../models/ProductModel");
+
 const bcrypt = require("bcrypt");
 const {createToken} = require("../Helpers/helpers");
 const dotenv = require("dotenv");
@@ -10,9 +13,35 @@ module.exports.LoginGet = function(req,res){
     res.render("login",{page_title:"Sign_in"});
 }
 module.exports.HomeGet = function(req,res){
-    res.render("home",
-        {welcomeString:"hhh",page_title:"Home"}
-    );
+    try {
+        let token = req.cookies._token;
+    if(!token){
+        res.redirect("/login");
+        return;
+    }
+        jwt.verify(token, process.env.JWT_SECRET, async(err,token)=>{
+        // Assuming you have the user ID in req.cookies._token;
+       
+        // Fetch the user from the database
+        let user = await User.findById(token.id);
+ 
+        
+ 
+        // Check the user's role
+        const query = user.role === "admin" ? {} : { isDeleted: false };
+ 
+        // Fetch products based on the user's role
+        const products = await Product.find(query);
+ 
+        // Render the product page with the fetched products
+        res.render("home",{page_title:"Home",products})  
+ 
+        })
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        res.status(500).send("Internal Server Error");
+    }
+    
 }
 
 
