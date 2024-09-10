@@ -1,5 +1,5 @@
 const express = require("express");
-const { productGet,productPost, addProduct, searchProduct, viewProduct, UpdateProduct, editProduct, DeleteProduct, softDeleteProduct } = require("../controllers/productControllers");
+const { productGet,productPost, addProduct, searchProduct, viewProduct, UpdateProduct, editProduct, DeleteProduct, softDeleteProduct, addtoCart,Basket, DeleteCart } = require("../controllers/productControllers");
 const { authenticated ,adminOnly} = require("../middlewares/middlware");
 const { logout } = require("../controllers/authControllers");
 const productRouter = express.Router();
@@ -15,4 +15,7 @@ productRouter.post("/updateproduct/:id",UpdateProduct);
 productRouter.get("/editproduct/:id",adminOnly,editProduct);
 productRouter.delete("/productdelete/:id",softDeleteProduct);
 productRouter.post("/deleteproduct/:id",DeleteProduct);
+productRouter.post("/add-to-cart",addtoCart);
+productRouter.get("/basket",Basket);
+productRouter.post("/deletecart",DeleteCart);
 module.exports = productRouter;

@@ -1,0 +1,43 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.cart-table{
+    width: 100%;
+}
+
+.cart-img{
+    width: 120px;
+    height: 120px;
+
+}
+.cart-head>th{
+    text-align: start;
+    padding-bottom: 2rem;
+}
+
+.cart-name,.cart-price,.cart-total{
+    font-size: 25px;
+    font-weight: lighter;
+}
+.cart-product>td{
+    padding-bottom: 1rem;
+}
+/* delete button */
+.delete-btn{
+    border: none;
+    margin-left: 1rem;
+    
+}
+.delete-btn>i{
+    height: auto;
+    width: auto;
+}
+.cart-quantity{
+    width: 30px;
+}
+h1{
+    font-weight: lighter;
+}
+.delete-btn,#q-minus,#q-plus,.cart-name{
+    cursor: pointer;
+}
