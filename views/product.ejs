@@ -1,11 +1,11 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
-<div class="container">
+<div class="product-container">
     <% if (locals.products) { %>
         <%- include('partials/selection-section',{selection: products}) %>
     <% } else { %>
         <h2 class="info-sorry">Sorry we currently don't have any products available right now</h2>
-        <p class="contacat">
+        <p class="contact">
             If you have any inquiry, please contact our <a>customer support</a>
         </p>
      <% } %>

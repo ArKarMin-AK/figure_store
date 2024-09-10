@@ -1,5 +1,6 @@
 const express = require("express");
 const { registerGet, LoginGet, LoginPost, HomeGet } = require("../controllers/authControllers");
+const {homeproduct}= require("../controllers/productControllers")
 
 const authRouter = express.Router();
 authRouter.get("/register",registerGet);

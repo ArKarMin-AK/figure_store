@@ -1,14 +1,17 @@
 <%- include('partials/header'); %>
 <%- include('partials/nav') %>
-    <h1>Welcome to our TOkiDOki Page</h1>
+    <h1>This is Home</h1>
+    <h3>
+        <%= welcomeString %>
+    </h3>
     
 <% if (!locals.user) { %>
  <a href="/login">Sign up</a>
  <% } else { %>
     <% if (user.role=="admin") { %>
-      <h2>Hello Admin <%= user.username %> </h2>
-     <button id="addproduct-btn"><a href="addproduct">Add Product</a></button>
+     <button class="add-btn"><a href="addproduct">Add Product</a></button>
     <% } %>
+  
 <% } %>
 
 <%- include('partials/footer')%>

@@ -23,6 +23,7 @@ const products = [
     }
 ]
 
+
 module.exports.productGet = async function(req,res){
 
     try {
@@ -37,7 +38,7 @@ module.exports.productGet = async function(req,res){
         // Fetch the user from the database
         let user = await User.findById(token.id);
  
-
+        
  
         // Check the user's role
         const query = user.role === "admin" ? {} : { isDeleted: false };
@@ -46,7 +47,8 @@ module.exports.productGet = async function(req,res){
         const products = await Product.find(query);
  
         // Render the product page with the fetched products
-        res.render("product",{page_title: "Products",products})   
+        res.render("product",{page_title: "Products",products})  
+ 
         })
     } catch (error) {
         console.error("Error fetching products:", error);
