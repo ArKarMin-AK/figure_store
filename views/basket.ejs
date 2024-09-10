@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<h1>Your Cart</h1>
+
+    <% if (!carts || carts.length === 0) { %>
+        <p>Your Cart is empty.</p>
+    <% } else { %>
+        <div class="basket-container">
+            <table class="cart-table">
+                <tr class="cart-head">
+                    <th colspan="2">PRODUCT</th>
+                    <th>QUANTITY</th>
+                    <th>TOTAL PRICE</th>
+                </tr>
+                <% for( let item of carts) { %>
+                    <form action="/deletecart" method="POST">
+                        <input type="hidden" name="name" value="<%= item.product_name %>">
+                    <input type="hidden" name="price" value="<%= item.product_price %>">
+                    <input type="hidden" name="img" value="<%= item.product_img %>">
+                    <input type="hidden" name="id" value="<%= item.product_id %>">
+                    <input type="hidden" name="quantity" value="<%= item.product_quantity %>">
+                    <input type="hidden" id="length" value="<%= carts.length %>">
+                    <tr class="cart-product">
+                        <td><img class="cart-img" src="<%= item.product_img %>" alt=""></td>
+                        <td>
+                            <div class="cart-name"><%= item.product_name %></div>
+                            <div class="cart-price">$<%= item.product_price %></div>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-minus" onclick="changeQuantity(-1)" id="q-minus"></i>
+                            <input class="cart-quantity" type="number" id="quantity"  min="1" value="<%= item.product_quantity %>">   
+                            <i class="fa-solid fa-plus" onclick="changeQuantity(+1)" id="q-plus"></i>
+                            <button type="submit"  class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+                        </td>
+                        <td>
+                            <div class="cart-totalp">$<%= item.product_price*item.product_quantity %></div>
+                            <input type="hidden" id="total-price" value="<%= item.product_price*item.product_quantity %>">
+                        </td>
+                    </tr>
+                    </form>
+                <% } %>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td></td>
+                </tr>
+            </table>
+            
+        </div>
+    <% } %>
+    <script>
+        const l = document.getElementById("length");
+        const id = [];
+        for(let i = 0; i < l;i++){
+            id.push
+
+            function changeQuantity(amount) {
+            const quantityInput = document.getElementById("quantity")
+        }
+        }
+        
+    </script>
+    <%- include('partials/footer') %>

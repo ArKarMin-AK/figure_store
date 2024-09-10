@@ -1,12 +1,37 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
+
 <div class="sections">
     
     <div class="view-product">
         <img src="<%= product.img %>" alt="">
-        <h2><%= product.name %></h2>
-        <h3><%= product.description %></h3>
-        <p><%= product.price %></p>
+        <form action="/add-to-cart" method="POST" class="product-inf">
+            <h1><%= product.name %></h1>
+            <h3><%= product.description %></h3>
+            <p>$<%= product.price %></p>
+            <input type="hidden" name="productid" value="<%= product.id %>">
+            <input type="hidden" name="name" value="<%= product.name %>">
+            <input type="hidden" name="price" value="<%= product.price %>">
+            <input type="hidden" name="img" value="<%= product.img %>">
+            <span>Quantity</span>
+            <div class="quantity">
+                <i class="fa-solid fa-minus" onclick="changeQuantity(-1)" id="q-minus"></i>
+                <input type="number" value="1" name="quantity" id="p-quan" min="1">
+                <i class="fa-solid fa-plus" onclick="changeQuantity(+1)" id="q-plus"></i>
+            </div>
+            <button type="submit" class="" >Add to Cart</button>
+        </form>
+        
     </div>
 </div>
+<script>
+    function changeQuantity(amount) {
+            const quantityInput = document.getElementById('p-quan');
+            let currentQuantity = parseInt(quantityInput.value);
+            if (currentQuantity + amount > 0) {
+                quantityInput.value = currentQuantity + amount;
+            }
+        }
+       
+</script>
 <%- include('partials/footer') %>

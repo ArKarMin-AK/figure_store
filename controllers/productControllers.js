@@ -1,6 +1,7 @@
 const { query } = require("express");
 const jwt = require("jsonwebtoken");
 const Product = require("../models/ProductModel");
+const Cart = require("../models/CartModel");
 const {User} = require("../models/UserModel");
 const {adminOnly} = require("../middlewares/middlware");
 
@@ -250,4 +251,61 @@ module.exports.softDeleteProduct = async function(req,res){
         });
     }
     
+}
+
+let cart = [];
+
+module.exports.addtoCart = async function(req,res){
+    let id = req.body.productid;
+    let quantity = req.body.quantity;
+    let name = req.body.name;
+    let price = req.body.price;
+    let img = req.body.img;
+    let p = await Product.findById(id);
+    
+    try{
+        const cartitem = await Cart.findOne({product_id:id});
+        if(!cartitem){
+            new_item = new Cart({
+                product_id:id,
+                product_name:name,
+                product_quantity:quantity,
+                product_price:price,
+                product_img:img
+            })
+            
+            new_item = await new_item.save();
+            
+        }
+        
+        else{
+            console.log("Already inserted")
+            
+        }
+    }
+    catch(err){
+        res.status(400).json({
+            error:[{
+                cart:err.message
+            }]
+        })
+    }
+}
+module.exports.Basket = async function(req,res){
+    const carts = await Cart.find();
+    res.render("basket",{carts,page_title:"Basket"})
+}
+module.exports.DeleteCart = async function(req,res){
+    let id = req.body.id;
+    try{
+        await Cart.deleteOne({product_id:id})
+        res.redirect('basket')
+    }
+    catch(err){
+        res.status(400).json({
+            error:[{
+                cart:err.message
+            }]
+        })
+    }
 }
